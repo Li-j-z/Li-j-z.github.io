@@ -1,12 +1,35 @@
-window.onkeydown = window.onkeyup = window.onkeypress = function (event) {  
-    // 判断是否按下F12，F12键码为123  
-    if (event.keyCode = 123) {  
-        event.preventDefault(); // 阻止默认事件行为  
-        window.event.returnValue = false;  
-    }  
-}
-// 为右键添加自定义事件，可以禁用  
+window.onkeydown = window.onkeyup = window.onkeypress = function () {
+            window.event.returnValue = false;
+            return false;
+        };
+var h = window.innerHeight,
+            w = window.innerWidth;
+        window.onresize = function () {
+            if (h != window.innerHeight || w != window.innerWidth) {
+                window.location = "https://www.baidu.com";
+            }
+        };
+
 window.oncontextmenu = function() {  
-    event.preventDefault(); // 阻止默认事件行为  
+    event.preventDefault(); 
     return false;  
 }
+ setInterval(function () {
+            check()
+        }, 1000);
+        var check = function () {
+            function doCheck(a) {
+                if (("" + a / a)["length"] !== 1 || a % 20 === 0) {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                } else {
+                    (function () { }
+                    ["constructor"]("debugger")())
+                }
+                doCheck(++a)
+            }
+            try {
+                doCheck(0)
+            } catch (err) { }
+        };
+        check(); 
